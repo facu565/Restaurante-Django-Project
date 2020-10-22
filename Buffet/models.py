@@ -19,3 +19,6 @@ class Reserva(models.Model):
     fecha = models.DateField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
+class Pedido(models.Model):
+    num_ped = models.AutoField(primary_key=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
