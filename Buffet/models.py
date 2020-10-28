@@ -5,6 +5,8 @@ from django.db import models
 class Mesa(models.Model):
     num_Mesa = models.AutoField(primary_key=True)
     cantSillas = models.IntegerField(max_length=6)
+    def __str__(self):
+        return 'Mesa: {}'.format(self.num_Mesa)
 
 class Cliente(models.Model):
     id = models.AutoField(primary_key=True)
