@@ -2,17 +2,17 @@ from django.db import models
 
 # Create your models here.
 
-#ESTADO_MESA = [
-#    ('LB', 'Libre'),
-#    ('RS', 'Reservada'),
-#    ('OP', 'Ocupada'),
-#    ('NO', 'No Disponible'),
-#]
+ESTADO_MESA = [
+    ('LB', 'Libre'),
+    ('RS', 'Reservada'),
+    ('OP', 'Ocupada'),
+    ('NO', 'No Disponible'),
+]
 
 class Mesa(models.Model):
     num_Mesa = models.AutoField(primary_key=True)
     cantSillas = models.IntegerField(max_length=6)
-    #status = models.CharField(max_length=2, choices=ESTADO_MESA, default='Libre')
+    status = models.CharField(max_length=2, choices=ESTADO_MESA, default='Libre')
 
     def __str__(self):
         return 'Mesa: {}'.format(self.num_Mesa)
@@ -64,7 +64,7 @@ class Bebida(models.Model):
 class Platillo(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
-    # pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    #pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -73,7 +73,7 @@ class Platillo(models.Model):
 class Acompaniante(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
-    # pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    #pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
