@@ -27,7 +27,7 @@ class Cliente(models.Model):
     correo = models.CharField(max_length=40)
 
     def __str__(self):
-        return self.dni
+        return "{} {}".format(self.nombre,self.apellido)
 
 
 class Reserva(models.Model):
@@ -49,7 +49,7 @@ class Pago(models.Model):
     codSeg = models.CharField(max_length=5)
 
     def __str__(self):
-        return self.cliente
+        return "{}".format(self.cliente)
 
 
 class Bebida(models.Model):
