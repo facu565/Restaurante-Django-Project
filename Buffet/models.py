@@ -11,7 +11,7 @@ ESTADO_MESA = [
 
 class Mesa(models.Model):
     num_Mesa = models.AutoField(primary_key=True)
-    cantSillas = models.IntegerField(max_length=6)
+    cantSillas = models.IntegerField()
     status = models.CharField(max_length=2, choices=ESTADO_MESA, default='Libre')
 
     def __str__(self):
