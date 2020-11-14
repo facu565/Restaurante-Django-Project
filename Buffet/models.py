@@ -19,7 +19,6 @@ class Mesa(models.Model):
 
 
 class Cliente(models.Model):
-    id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     dni = models.CharField(max_length=10)
@@ -42,7 +41,7 @@ class Pedido(models.Model):
 
 
 class Pago(models.Model):
-    id = models.AutoField(primary_key=True)
+    cod_pago = models.AutoField(primary_key=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     num_trj = models.CharField(max_length=20)
     fechaV = models.DateField()
@@ -53,7 +52,6 @@ class Pago(models.Model):
 
 
 class Bebida(models.Model):
-    id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
     #pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
@@ -62,7 +60,6 @@ class Bebida(models.Model):
 
 
 class Platillo(models.Model):
-    id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
     #pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
@@ -71,7 +68,6 @@ class Platillo(models.Model):
 
 
 class Acompaniante(models.Model):
-    id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
     #pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
