@@ -1,3 +1,13 @@
 {% extends "base.html" %}
+{% load static i18n %}
 {% block tittle %} Menú {% endblock %}
-{% block content %} {% endblock %}
+{% block content %}
+<div class="ui container">
+
+    <h1>Usa nuestro codigo QR!</h1>
+    <img src={{img.qr_code.url}} class="img-thumbnail" style="width: 30%; margin-left: 25%;margin-right: 20%;">
+    <br><br><br>
+
+</div>
+
+{% endblock %}

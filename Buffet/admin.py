@@ -49,6 +49,9 @@ class PagoAdmin(admin.ModelAdmin):
     )
 
 
+class WebsiteAdmin(admin.ModelAdmin):
+    list_display = ['name', 'qr_code', ]
+
 
 class MesaAdmin(admin.ModelAdmin):
     list_display= ['num_Mesa' , 'cantSillas']
@@ -80,3 +83,4 @@ admin.site.register(Pago, PagoAdmin)
 admin.site.register(Bebida, BebidaAdmin)
 admin.site.register(Platillo, PlatilloAdmin)
 admin.site.register(Acompaniante, AcompanianteAdmin)
+admin.site.register(Website, WebsiteAdmin)
