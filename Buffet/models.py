@@ -1,4 +1,8 @@
 from django.db import models
+import qrcode
+from io import BytesIO
+from django.core.files import File  
+from PIL import Image, ImageDraw
 
 # Create your models here.
 
@@ -18,11 +22,31 @@ class Mesa(models.Model):
         return 'Mesa: {}'.format(self.num_Mesa)
 
 
+class Website(models.Model):
+    name = models.CharField(max_length=200)
+    qr_code = models.ImageField(upload_to='qr', blank=True)
+
+    def __str__(self):
+        return str(self.name)
+
+    def save(self, *args, **kwargs):
+        qrcode_img = qrcode.make(self.name)
+        canvas = Image.new('RGB', (qrcode_img.pixel_size, qrcode_img.pixel_size), 'white')
+        draw = ImageDraw.Draw(canvas)
+        canvas.paste(qrcode_img)
+        fname = f'qr_code-{self.name}'+'.png'
+        buffer = BytesIO()
+        canvas.save(buffer,'PNG')
+        self.qr_code.save(fname, File(buffer), save= False)
+        canvas.close()
+        super().save(*args, **kwargs)
+
+
 class Cliente(models.Model):
+    telefono = models.CharField(max_length=30)
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     dni = models.CharField(max_length=10)
-    telefono = models.CharField(max_length=30)
     correo = models.CharField(max_length=40)
 
     def __str__(self):

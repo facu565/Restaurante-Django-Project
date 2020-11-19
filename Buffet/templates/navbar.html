@@ -1,5 +1,5 @@
 {% load static i18n %}
-
+{% block content %}
 <!-- Preloader -->
 <div id="loading">
     <div id="loading-center">
@@ -43,10 +43,15 @@
         <div class="widget">
             <h6 class="title">Menu</h6>
             <ul class="link">
+                {% if request.user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+                {% else %}
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+                {% endif %}
                 <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Portfolio</a></li>
+                
+
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
@@ -54,3 +59,4 @@
     <!-- End Side Menu -->
 </nav>
 <!-- Navbar -->
+{% endblock %}
