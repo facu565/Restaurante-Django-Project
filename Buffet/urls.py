@@ -11,6 +11,7 @@ urlpatterns = [
     path('menu/', menu),
     path('nav/', navbar),
     path('register/', register),
+    path('reserva/', reserva),
     path('login/', LoginView.as_view(template_name = 'login.html')),
     path('logout/', LogoutView.as_view(template_name = 'logout.html')),
 

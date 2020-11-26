@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva Toro Bayo</title>
+</head>
+<body style="background: #282828">
+    {% extends "base.html" %}
+    {% block content %}
+        <div><img src="https://image.freepik.com/foto-gratis/mesa-madera-restaurante-borrosa-fondo_81724-265.jpg" width="720" height="320" alt="mesa"></div>
+        <h2>Bienvenido {{ user.username }}</h2>
+        <div  style="width: 100%; padding: 12px 20px; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin: 50px 300px; width:fit-content; background-color: #594E4B" >
+            <h4>Selecciona el dia y la hora deseados para su reserva</h4>
+            <br>
+            <form action="." method="POST"> {% csrf_token %}
+                <div>
+                    <label for="start">Cantidad de personas: </label>
+                    <select name="cant_p" style="color: #282828">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="start">Dia: </label>
+                    <input name="date_r" type="date" min="2020-01-01" max="2025-12-31" style="color: #282828">
+                    <label for="start">Hora: </label>
+                    <select name="hora" style="color: #282828">
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                    </select>
+                </div>
+                <br>
+                <input type="submit" style="color: #282828">
+            </form>
+
+        </div>
+
+
+    {% endblock %}
+</body>
+</html>

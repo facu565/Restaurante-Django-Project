@@ -3,6 +3,7 @@ import qrcode
 from io import BytesIO
 from django.core.files import File  
 from PIL import Image, ImageDraw
+from datetime import datetime
 
 # Create your models here.
 
@@ -19,7 +20,7 @@ class Mesa(models.Model):
     status = models.CharField(max_length=2, choices=ESTADO_MESA, default='Libre')
 
     def __str__(self):
-        return 'Mesa: {}'.format(self.num_Mesa)
+        return 'Mesa: {}'.format(self.cantSillas)
 
 
 class Website(models.Model):
@@ -55,7 +56,9 @@ class Cliente(models.Model):
 
 class Reserva(models.Model):
     num_Res = models.AutoField(primary_key=True)
+    mesa = models.ForeignKey(Mesa, on_delete=models.CASCADE, default=2)
     fecha = models.DateField()
+    hora = models.TimeField(default=datetime.now)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
 
