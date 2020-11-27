@@ -21,7 +21,7 @@ class Mesa(models.Model):
     status = models.CharField(max_length=2, choices=ESTADO_MESA, default='Libre')
 
     def __str__(self):
-        return 'Mesa: {}'.format(self.cantSillas)
+        return 'Mesa{}: {}'.format(self.num_Mesa, self.cantSillas)
 
 
 class Website(models.Model):
