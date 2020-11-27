@@ -4,6 +4,7 @@ from io import BytesIO
 from django.core.files import File  
 from PIL import Image, ImageDraw
 from datetime import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -59,7 +60,7 @@ class Reserva(models.Model):
     mesa = models.ForeignKey(Mesa, on_delete=models.CASCADE, default=2)
     fecha = models.DateField()
     hora = models.TimeField(default=datetime.now)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Pedido(models.Model):
