@@ -59,67 +59,8 @@
         </div><!-- first section end -->
 
         <!-- Second section -->
-        <div class="row">
-            <div class="col-md-6">
-                <div class="classic">
-                    <a href="" class="classic_btn">classic</a>
 
-                    <div class="overlay">
-                        <h3>House-ground hamburger</h3>
-                        <p>(served in a grilled rosemary focaccia).</p>
-
-                        <p class="overlay_content">Instead of traditional cucumber pickles, legendary chef-owner Judy
-                            Rodgers accents her burgers with thin-cut zucchini strips pickled in apple cider vinegar,
-                            mustard seeds and turmeric.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <!-- Carousel -->
-                <div id="small_carousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#small_carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#small_carousel" data-slide-to="1"></li>
-                        <li data-target="#small_carousel" data-slide-to="2"></li>
-                    </ol>
-
-                    <div class="carousel-caption">
-                        <h3>The Original Burger</h3>
-                        <hr />
-
-                        <ul class="list-unstyled nutrition">
-                            <li><a href=""><span class="flaticon flaticon-protein"></span>
-                                    <p>Protein - 33g</p>
-                                </a></li>
-                            <li><a href=""><span class="flaticon flaticon-carbohydrate"></span>
-                                    <p>Carbohydrates - 46gm</p>
-                                </a></li>
-                            <li><a href=""><span class="flaticon flaticon-calories"></span>
-                                    <p>Calories - 750 kcal</p>
-                                </a></li>
-                        </ul>
-                        <div class="info_btn_shadow">
-                            <a href="" class="info_btn">info & nutrition</a>
-                        </div>
-                    </div>
-
-                    <!-- carousel inner -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="{% static 'images/small_slider_bg.jpg' %}" alt="" />
-                        </div>
-                        <div class="item">
-                            <img src="{% static 'images/small_slider_bg.jpg' %}" alt="" />
-                        </div>
-                        <div class="item">
-                            <img src="{% static 'images/small_slider_bg.jpg' %}" alt="" />
-                        </div>
-                    </div><!-- carousel inner end -->
-                </div><!-- Carousel end-->
-            </div>
-        </div><!-- second section end -->
+        <!-- second section end -->
 
         <!-- Third section -->
         <!-- Carousel -->
@@ -184,15 +125,15 @@
         <!-- Forth section -->
         <div class="col-sm-4">
             <div class="menu">
-                <div class="inner_content">
-                    <a href="/grilla/" class="flaticon flaticon-drink" style="color: white; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:50px;">MENU </a>
+                <div onclick="location.href='/grilla';" class="inner_content">
+                    <h2>Menú</h2>
                 </div>
             </div>
         </div>
             <div class="col-sm-4">
                 <div class="menu">
-                    <div class="inner_content">
-                        <a href="/grilla/" class="flaticon flaticon-drink" style="color: white; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:50px;">PEDIR </a>
+                    <div onclick="location.href='/grilla';" class="inner_content">
+                        <h2> Realizar un Pedido</h2>
                     </div>
                 </div>
             </div>
@@ -200,7 +141,7 @@
             <div class="col-sm-4">
                 <a> </a>
                 <div class="sides">
-                    <div class="inner_content">
+                    <div onclick="location.href='/reserva';" class="inner_content">
                         <h2>Reservar</h2>
                     </div>
                 </div>
