@@ -20,13 +20,13 @@ class ClienteAdmin(admin.ModelAdmin):
 
 class ReservaAdmin(admin.ModelAdmin):
     inline= [ClienteInline]
-    list_display= ['num_Res', 'fecha', 'cliente',]
+    list_display= ['num_Res', 'fecha', 'cliente', 'hora', 'mesa']
     fieldsets = (
         ("Fecha de Reserva", {
-            'fields': ('fecha',)
+            'fields': ('fecha','hora')
         }),
         ('Datos de la Reserva', {
-            'fields': ('cliente',)
+            'fields': ('cliente','mesa')
         })
     )
 

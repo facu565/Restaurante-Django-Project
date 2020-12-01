@@ -5,6 +5,8 @@ from django.core.files import File
 from PIL import Image, ImageDraw
 from django.conf import settings
 from django.shortcuts import reverse
+from django.contrib.auth.models import User
+from datetime import datetime
 
 
 # Create your models here.
@@ -60,8 +62,10 @@ class Cliente(models.Model):
 
 class Reserva(models.Model):
     num_Res = models.AutoField(primary_key=True)
+    mesa = models.ForeignKey(Mesa, on_delete=models.CASCADE, default=2)
     fecha = models.DateField()
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    hora = models.TimeField(default=datetime.now)
+    cliente = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Pedido(models.Model):

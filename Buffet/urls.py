@@ -13,6 +13,7 @@ urlpatterns = [
     path('', home_page),
     path('menu/', menu),
     path('nav/', navbar),
+    path('reserva/', reserva),
     path('register/', register),
     path('login/', LoginView.as_view(template_name = 'login.html')),
     path('logout/', LogoutView.as_view(template_name = 'logout.html')),
