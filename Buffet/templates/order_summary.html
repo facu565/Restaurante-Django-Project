@@ -1,0 +1,158 @@
+{% extends "base_cart.html" %}
+{% load static %}
+
+{% block content %}
+
+
+        <div class="table-responsive text-nowrap">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order_item in object.items.all %}
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{ order_item.item.title }}</td>
+                        <td>${{ order_item.item.price }}</td>
+                        <td>{{ order_item.quantity }}</td>
+                        <td>${{ order_item.precio_total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                {% for item in object_list%}
+
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
+                                class="card-img-top" alt="">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="grey-text">
+                                <h5>{{ item.get_category_display }}</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                                        <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
+                                    </a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>${{ item.price }}</strong>
+                            </h4>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                </div>
+                {% endfor %}
+                <!--Grid column-->
+
+
+              
+
+            </div>
+            </main>
+            <!--Main layout-->
+
+            <!--Footer-->
+            <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+                <!--Call to action-->
+                <div class="pt-4">
+                    <a class="btn btn-outline-white"
+                        href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank"
+                        role="button">Download MDB
+                        <i class="fas fa-download ml-2"></i>
+                    </a>
+                    <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank"
+                        role="button">Start
+                        free tutorial
+                        <i class="fas fa-graduation-cap ml-2"></i>
+                    </a>
+                </div>
+                <!--/.Call to action-->
+
+                <hr class="my-4">
+
+                <!-- Social icons -->
+                <div class="pb-4">
+                    <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+                        <i class="fab fa-facebook-f mr-3"></i>
+                    </a>
+
+                    <a href="https://twitter.com/MDBootstrap" target="_blank">
+                        <i class="fab fa-twitter mr-3"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+                        <i class="fab fa-youtube mr-3"></i>
+                    </a>
+
+                    <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+                        <i class="fab fa-google-plus-g mr-3"></i>
+                    </a>
+
+                    <a href="https://dribbble.com/mdbootstrap" target="_blank">
+                        <i class="fab fa-dribbble mr-3"></i>
+                    </a>
+
+                    <a href="https://pinterest.com/mdbootstrap" target="_blank">
+                        <i class="fab fa-pinterest mr-3"></i>
+                    </a>
+
+                    <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+                        <i class="fab fa-github mr-3"></i>
+                    </a>
+
+                    <a href="http://codepen.io/mdbootstrap/" target="_blank">
+                        <i class="fab fa-codepen mr-3"></i>
+                    </a>
+                </div>
+                <!-- Social icons -->
+
+                <!--Copyright-->
+                <div class="footer-copyright py-3">
+                    © 2019 Copyright:
+                    <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+                </div>
+                <!--/.Copyright-->
+
+            </footer>
+            <!--/.Footer-->
+{% endblock %}

@@ -637,12 +637,12 @@ header .caption {
 
 /* Forth Secition */
 .menu, .drinks, .sides {
+    background-color: black;
     margin-top: 35px;
     height: 190px;
     padding: 75px 0 40px;
 }
 .menu{background: url(../images/menu_bg.jpg)no-repeat;background-size: 100% 100%;}
-.drinks{background: url(../images/drinks_bg.jpg)no-repeat;background-size: 100% 100%;}
 .sides{background: url(../images/sides_bg.jpg)no-repeat;background-size: 100% 100%;}
 .inner_content {
     display: block;

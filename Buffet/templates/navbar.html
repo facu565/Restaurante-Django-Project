@@ -35,28 +35,26 @@
         <!-- End Header Navigation -->
     </div>
 
+        <!-- Start Side Menu -->
+        <div class="side">
+            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            <div class="widget">
+                <h6 class="title">Menu</h6>
+                <ul class="link">
+                    {% if request.user.is_authenticated %}
+                    <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                    {% endif %}
+                    <li><a href="#">About</a></li>
 
 
-    <!-- Start Side Menu -->
-    <div class="side">
-        <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-        <div class="widget">
-            <h6 class="title">Menu</h6>
-            <ul class="link">
-                {% if request.user.is_authenticated %}
-                <li><a href="/logout">Logout</a></li>
-                {% else %}
-                <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li>
-                {% endif %}
-                <li><a href="#">About</a></li>
-                
-
-                <li><a href="#">Contact</a></li>
-            </ul>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <!-- End Side Menu -->
+        <!-- End Side Menu -->
 </nav>
 <!-- Navbar -->
 {% endblock %}
