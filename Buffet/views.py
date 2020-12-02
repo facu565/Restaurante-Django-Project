@@ -9,6 +9,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from .models import *
 from django.views.generic import ListView, DetailView, View
+from django.contrib.auth import authenticate
+from django.shortcuts import redirect
+
 
 # Create your views here.
 def home_page(request):
@@ -24,6 +27,12 @@ def menu(request):
     return render(request,"menu.html", context)
 
 def reserva(request):
+    user = request.user.is_authenticated
+    print(user)
+    if user == False :
+        print("impostor!!!!")
+        return redirect('/login/')
+
     cant_personas = request.POST.get('cant_p')
     date_reserva = request.POST.get('date_r')
     hora_reserva = request.POST.get('hora')

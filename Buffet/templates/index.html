@@ -30,6 +30,30 @@
     <div class="container">
 
         <!-- First section -->
+        <div class="col-sm-4">
+            <div class="menu">
+                <div onclick="location.href='/grilla';" class="inner_content">
+                    <h2>Menú</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="menu">
+                <div onclick="location.href='/grilla';" class="inner_content">
+                    <h2> Realizar un Pedido</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-4">
+            <a> </a>
+            <div class="sides">
+                <div onclick="location.href='/reserva';" class="inner_content">
+                    <h2>Reservar</h2>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-8">
                 <div class="feature">
@@ -38,7 +62,7 @@
                             <img src="{% static 'images/chicken.png' %}" alt="Chicken" />
                         </div>
 
-                        <h2>Shack Burger </h2>
+                        <h2>Bayo Burger </h2>
                         <p>Black Angus beef patty topped with American cheese, tomato, lettuce, and “Shack Sauce,”
                             served in a grilled potato bun</p>
                     </div>
@@ -109,7 +133,7 @@
 
                     <div class="carousel-caption">
                         <h2>Cheddar JUnky</h2>
-                        <h3>Stuffed Burgers</h3>
+                        <h3>Bayo Burgers</h3>
 
                         <p>Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin
                             stacked patties, thick-cut bacon, kimchi and a spicy homemade sauce.</p>
@@ -122,34 +146,8 @@
             </div><!-- carousel inner end -->
         </div><!-- Carousel end-->
 
-        <!-- Forth section -->
-        <div class="col-sm-4">
-            <div class="menu">
-                <div onclick="location.href='/grilla';" class="inner_content">
-                    <h2>Menú</h2>
-                </div>
-            </div>
+
         </div>
-            <div class="col-sm-4">
-                <div class="menu">
-                    <div onclick="location.href='/grilla';" class="inner_content">
-                        <h2> Realizar un Pedido</h2>
-                    </div>
-                </div>
-            </div>
-            {% if request.user.is_authenticated %}
-            <div class="col-sm-4">
-                <a> </a>
-                <div class="sides">
-                    <div onclick="location.href='/reserva';" class="inner_content">
-                        <h2>Reservar</h2>
-                    </div>
-                </div>
-            </div>
-
-            {% endif %}
-
-        </div><!-- forth section end -->
     </div>
 </section><!-- Block Content end-->
 
