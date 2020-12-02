@@ -27,10 +27,9 @@ def menu(request):
     return render(request,"menu.html", context)
 
 def reserva(request):
+    #Sistema de Autentificacion
     user = request.user.is_authenticated
-    print(user)
     if user == False :
-        print("impostor!!!!")
         return redirect('/login/')
 
     cant_personas = request.POST.get('cant_p')
