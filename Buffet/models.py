@@ -109,9 +109,11 @@ class Acompaniante(models.Model):
 
 
 CATEGORY_CHOICES = [
-    ('S', 'Shirt'),
-    ('SW', 'Sportwear'),
-    ('OW', 'Outwear'),
+    ('CR', 'Carne Roja'),
+    ('CB', 'Carne Blanca'),
+    ('P', 'Pasta'),
+    ('G', 'Gaseosa'),
+
 
 
 ]
