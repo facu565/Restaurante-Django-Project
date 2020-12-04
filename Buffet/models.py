@@ -48,7 +48,7 @@ class Mesa(models.Model):
 
 
 
-
+'''
 class Cliente(models.Model):
     telefono = models.CharField(max_length=30)
     nombre = models.CharField(max_length=30)
@@ -58,7 +58,7 @@ class Cliente(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.nombre,self.apellido)
-
+'''
 
 class Reserva(models.Model):
     num_Res = models.AutoField(primary_key=True)
@@ -67,13 +67,13 @@ class Reserva(models.Model):
     hora = models.TimeField(default=datetime.now)
     cliente = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
+'''
 class Pedido(models.Model):
     num_ped = models.AutoField(primary_key=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
 
-'''class Pago(models.Model):
+class Pago(models.Model):
     cod_pago = models.AutoField(primary_key=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     num_trj = models.CharField(max_length=20)
@@ -82,7 +82,7 @@ class Pedido(models.Model):
 
     def __str__(self):
         return "{}".format(self.cliente)
-'''
+
 
 class Bebida(models.Model):
     nombre = models.CharField(max_length=20)
@@ -106,7 +106,7 @@ class Acompaniante(models.Model):
 
     def __str__(self):
         return self.nombre
-
+'''
 
 CATEGORY_CHOICES = [
     ('CR', 'Carne Roja'),

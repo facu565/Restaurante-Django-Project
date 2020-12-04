@@ -2,10 +2,10 @@ from django.contrib import admin
 from.models import *
 
 # Register your models here.
-class ClienteInline(admin.TabularInline):
-    model= Cliente
+#class ClienteInline(admin.TabularInline):
+#    model= Cliente
 
-
+'''
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ['id', 'nombre', 'apellido']
     list_filter= ['id', 'nombre', 'apellido']
@@ -17,9 +17,9 @@ class ClienteAdmin(admin.ModelAdmin):
             'fields': ('correo', 'telefono',)
         })
     )
-
+'''
 class ReservaAdmin(admin.ModelAdmin):
-    inline= [ClienteInline]
+    #inline= [ClienteInline]
     list_display= ['num_Res', 'fecha', 'cliente', 'hora', 'mesa']
     fieldsets = (
         ("Fecha de Reserva", {
@@ -29,12 +29,21 @@ class ReservaAdmin(admin.ModelAdmin):
             'fields': ('cliente','mesa')
         })
     )
-
+'''
 class PedidoAdmin(admin.ModelAdmin):
     inline= [ClienteInline]
     list_display= ['num_ped', 'cliente',]
-
-
+'''
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ['title', 'price', 'category', 'slug', 'descripcion', ]
+    fieldsets = (
+        ("Informacion Principal", {
+            'fields': ('title', 'price', 'category')
+        }),
+        ('Detalles', {
+            'fields': ('slug', 'descripcion')
+        })
+    )
 
 '''class PagoAdmin(admin.ModelAdmin):
     inline=[ClienteInline]
@@ -58,7 +67,7 @@ class MesaAdmin(admin.ModelAdmin):
     list_filter= ['num_Mesa' , 'cantSillas']
     search_fields= ['num_Mesa',]
 
-
+'''
 class BebidaAdmin(admin.ModelAdmin):
     list_display= ['id', 'nombre']
 
@@ -69,7 +78,7 @@ class PlatilloAdmin(admin.ModelAdmin):
 
 class AcompanianteAdmin(admin.ModelAdmin):
     list_display= ['id', 'nombre']
-
+'''
 
 
 
@@ -77,13 +86,13 @@ class AcompanianteAdmin(admin.ModelAdmin):
 
 admin.site.register(Mesa, MesaAdmin)
 admin.site.register(Reserva, ReservaAdmin)
-admin.site.register(Cliente, ClienteAdmin)
-admin.site.register(Pedido, PedidoAdmin)
+#admin.site.register(Cliente, ClienteAdmin)
+#admin.site.register(Pedido, PedidoAdmin)
 #admin.site.register(Pago, PagoAdmin)
-admin.site.register(Bebida, BebidaAdmin)
-admin.site.register(Platillo, PlatilloAdmin)
-admin.site.register(Acompaniante, AcompanianteAdmin)
+#admin.site.register(Bebida, BebidaAdmin)
+#admin.site.register(Platillo, PlatilloAdmin)
+#admin.site.register(Acompaniante, AcompanianteAdmin)
 #admin.site.register(Website, WebsiteAdmin)
-admin.site.register(Item)
+admin.site.register(Item, ItemAdmin)
 admin.site.register(OrderItem)
 admin.site.register(Order)
