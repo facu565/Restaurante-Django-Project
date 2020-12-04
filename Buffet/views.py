@@ -52,7 +52,6 @@ def reserva(request):
             if (i in reserva_disponible):
                 pass
             else:
-
                 la_mesa = Mesa.objects.get(num_Mesa=i)
                 Reserva.objects.create(fecha=date_reserva, hora=hora_reserva, mesa=la_mesa, cliente=request.user)
                 break
@@ -83,10 +82,18 @@ def login (request):
 
 
 
-
-class HomeView(ListView):   
+class HomeView(ListView):
     model = Item
     template_name = "home-page.html"
+'''
+    def get(self, request):
+        user = request.user.is_authenticated
+        print("nel ")
+        if user == False:
+            return redirect('/login/')
+        else:
+            return render(self.request, 'home-page.html')
+'''
 
 
 class OrderSummaryView(LoginRequiredMixin, View):
@@ -106,8 +113,6 @@ class OrderSummaryView(LoginRequiredMixin, View):
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product.html"
-
-
 
 
 @login_required
