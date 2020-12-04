@@ -16,7 +16,7 @@ Los trabajadores y el personal, desde la página de administración, podrán ver
 ####Descarga de archivos del repositorio
 Ejecutar los siguientes comandos en la terminal
 ```
-git clone https://github.com/DiogenesPuig/g5_ITSV
+git clone https://github.com/facu565/Restaurante-Django-Project.git
 ```
 ####Instalar requirements.txt en la virtualenv:
 ```
