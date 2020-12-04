@@ -113,9 +113,6 @@ CATEGORY_CHOICES = [
     ('CB', 'Carne Blanca'),
     ('P', 'Pasta'),
     ('G', 'Gaseosa'),
-
-
-
 ]
     
 
@@ -123,7 +120,6 @@ LABEL_CHOICES = [
     ('P', 'primary'),
     ('S', 'secondary'),
     ('D', 'danger'),
-
 ]
     
 
