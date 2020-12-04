@@ -1,8 +1,8 @@
 from django.db import models
-import qrcode
+#import qrcode
 from io import BytesIO
 from django.core.files import File  
-from PIL import Image, ImageDraw
+#from PIL import Image, ImageDraw
 from django.conf import settings
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
@@ -27,24 +27,24 @@ class Mesa(models.Model):
         return 'Mesa: {}'.format(self.num_Mesa)
 
 
-class Website(models.Model):
-    name = models.CharField(max_length=200)
-    qr_code = models.ImageField(upload_to='qr', blank=True)
-
-    def __str__(self):
-        return str(self.name)
-
-    def save(self, *args, **kwargs):
-        qrcode_img = qrcode.make(self.name)
-        canvas = Image.new('RGB', (qrcode_img.pixel_size, qrcode_img.pixel_size), 'white')
-        draw = ImageDraw.Draw(canvas)
-        canvas.paste(qrcode_img)
-        fname = f'qr_code-{self.name}'+'.png'
-        buffer = BytesIO()
-        canvas.save(buffer,'PNG')
-        self.qr_code.save(fname, File(buffer), save= False)
-        canvas.close()
-        super().save(*args, **kwargs)
+#class Website(models.Model):
+ #   name = models.CharField(max_length=200)
+  #  qr_code = models.ImageField(upload_to='qr', blank=True)
+#
+ #   def __str__(self):
+  #      return str(self.name)
+#
+ #   def save(self, *args, **kwargs):
+  #      qrcode_img = qrcode.make(self.name)
+   #     canvas = Image.new('RGB', (qrcode_img.pixel_size, qrcode_img.pixel_size), 'white')
+    #    draw = ImageDraw.Draw(canvas)
+     #   canvas.paste(qrcode_img)
+      #  fname = f'qr_code-{self.name}'+'.png'
+       # buffer = BytesIO()
+        #canvas.save(buffer,'PNG')
+        #self.qr_code.save(fname, File(buffer), save= False)
+        #canvas.close()
+        #super().save(*args, **kwargs)
 
 
 
@@ -73,7 +73,7 @@ class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
 
-class Pago(models.Model):
+'''class Pago(models.Model):
     cod_pago = models.AutoField(primary_key=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     num_trj = models.CharField(max_length=20)
@@ -82,7 +82,7 @@ class Pago(models.Model):
 
     def __str__(self):
         return "{}".format(self.cliente)
-
+'''
 
 class Bebida(models.Model):
     nombre = models.CharField(max_length=20)
@@ -113,25 +113,20 @@ CATEGORY_CHOICES = [
     ('CB', 'Carne Blanca'),
     ('P', 'Pasta'),
     ('G', 'Gaseosa'),
+    ('CH', 'Con Alcohol'),
+    ('SG', 'Sin Gas'),
 
 
 
 ]
     
 
-LABEL_CHOICES = [
-    ('P', 'primary'),
-    ('S', 'secondary'),
-    ('D', 'danger'),
-
-]
     
 
 class Item(models.Model):
     title = models.CharField(max_length=100)
     price = models.FloatField()
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
-    label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     descripcion = models.TextField()
 

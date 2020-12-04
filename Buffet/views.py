@@ -142,16 +142,16 @@ def remove_cart(request, slug):
     order_qs = Order.objects.filter(
         user=request.user, 
         ordered=False)
+    print("hola")
     if order_qs.exists():
         order = order_qs[0]
-        print("hola")
         if order.items.filter(item=item).exists():
             orderItem = OrderItem.objects.filter(
                 item=item,
                 user=request.user,
                 ordered=False
             )[0]
-            order.items.remove(item)
+            order.items.remove(orderItem)
             order.save()
             messages.info(request, "Producto fue removido del carrito exitosamente")
             return redirect("Buffet:product", slug=slug)

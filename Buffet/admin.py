@@ -36,7 +36,7 @@ class PedidoAdmin(admin.ModelAdmin):
 
 
 
-class PagoAdmin(admin.ModelAdmin):
+'''class PagoAdmin(admin.ModelAdmin):
     inline=[ClienteInline]
     list_display= [ 'cliente' ,'num_trj', 'fechaV', 'codSeg',]
     fieldsets = (
@@ -47,10 +47,10 @@ class PagoAdmin(admin.ModelAdmin):
             'fields': ('num_trj', 'fechaV', 'codSeg',)
         })
     )
+'''
 
-
-class WebsiteAdmin(admin.ModelAdmin):
-    list_display = ['name', 'qr_code', ]
+#class WebsiteAdmin(admin.ModelAdmin):
+    #list_display = ['name', 'qr_code', ]
 
 
 class MesaAdmin(admin.ModelAdmin):
@@ -79,11 +79,11 @@ admin.site.register(Mesa, MesaAdmin)
 admin.site.register(Reserva, ReservaAdmin)
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Pedido, PedidoAdmin)
-admin.site.register(Pago, PagoAdmin)
+#admin.site.register(Pago, PagoAdmin)
 admin.site.register(Bebida, BebidaAdmin)
 admin.site.register(Platillo, PlatilloAdmin)
 admin.site.register(Acompaniante, AcompanianteAdmin)
-admin.site.register(Website, WebsiteAdmin)
+#admin.site.register(Website, WebsiteAdmin)
 admin.site.register(Item)
 admin.site.register(OrderItem)
 admin.site.register(Order)

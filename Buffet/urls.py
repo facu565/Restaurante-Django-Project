@@ -12,7 +12,6 @@ app_name = 'Buffet'
 urlpatterns = [
     path('', home_page),
     path('menu/', menu),
-    path('nav/', navbar),
     path('reserva/', reserva),
     path('register/', register),
     path('login/', LoginView.as_view(template_name = 'login.html')),
@@ -21,7 +20,7 @@ urlpatterns = [
     path('order_summary/', OrderSummaryView.as_view(), name = 'order_summary'),
     path('grilla/', HomeView.as_view()),
     path('add_to_cart/<slug>/', add_to_cart, name = 'add_to_cart'),
-    path('remove-cart/<slug>/', remove_cart, name = 'remove-cart')
+    path('remove_cart/<slug>/', remove_cart, name = 'remove_cart')
 
 
     
